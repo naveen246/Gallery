@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">Gallery</string>
+    <string name="album_title_hint">Enter Album Title</string>
+	<string name="album_title_label">Title</string>
+	<string name="albums_title">Albums</string>
+	<string name="date_picker_title">Date:</string>
+
+</resources>
