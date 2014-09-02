@@ -13,11 +13,6 @@ public class Albums {
 	private Albums(Context context) {
 		mAppContext = context;
 		mAlbums = new ArrayList<Album>();
-		for(int i = 1; i <= 100; i++) {
-			Album a = new Album();
-			a.setTitle("Album " + i);
-			mAlbums.add(a);
-		}
 	}
 	
 	public static Albums get(Context c) {
@@ -25,6 +20,10 @@ public class Albums {
 			sAlbums = new Albums(c.getApplicationContext());
 		}
 		return sAlbums;
+	}
+	
+	public void addAlbum(Album a) {
+		mAlbums.add(a);
 	}
 	
 	public ArrayList<Album> getAlbums() {

@@ -5,5 +5,14 @@
 	<string name="album_title_label">Title</string>
 	<string name="albums_title">Albums</string>
 	<string name="date_picker_title">Date:</string>
+	
+	<string name="new_album">New Album</string>
+    <string name="show_subtitle">Show Subtitle</string>
+	<string name="hide_subtitle">Hide Subtitle</string>
+	<string name="subtitle">If u see something, say something</string>
+	<string name="delete_album">Delete</string>
+	
+	<string name="no_album">No album present</string>
+	<string name="create_album">Create album</string>
 
 </resources>
