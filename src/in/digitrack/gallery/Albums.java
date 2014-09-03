@@ -37,6 +37,10 @@ public class Albums {
 		mAlbums.add(a);
 	}
 	
+	public void deleteAlbum(Album a) {
+		mAlbums.remove(a);
+	}
+	
 	public ArrayList<Album> getAlbums() {
 		return mAlbums;
 	}

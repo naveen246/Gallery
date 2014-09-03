@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp" >
+    android:padding="10dp"
+    android:background="@drawable/background_activated" >
     
 	<TextView 
 		android:id="@+id/album_list_item_titleTextView"
