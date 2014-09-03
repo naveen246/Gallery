@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,19 +30,10 @@ public class AlbumListFragment extends ListFragment {
 		mAlbums = Albums.get(getActivity()).getAlbums();
 		AlbumAdapter adapter = new AlbumAdapter(mAlbums);
 		setListAdapter(adapter);
-		setEmptyText("No albums");
 	}
 	
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-		TextView emptyText = new TextView(getActivity()); //(TextView)findViewById(android.R.id.empty);
-		emptyText.setText("No albums");
-		getListView().setEmptyView(emptyText);
-	}
-	
-	private View noItems() {
-		Log.d("albumlistfragment", "noItems");
+	public void onViewCreated(View view, Bundle savedInstanceState) {
 		View emptyView = getActivity().getLayoutInflater().inflate(R.layout.list_view_empty, null);
 		Button newAlbumButton = (Button)emptyView.findViewById(R.id.new_album_button);
 		newAlbumButton.setOnClickListener(new OnClickListener() {
@@ -53,7 +42,8 @@ public class AlbumListFragment extends ListFragment {
 				createNewAlbum();
 			}
 		});
-		return emptyView;
+		((ViewGroup) getListView().getParent()).addView(emptyView);
+		getListView().setEmptyView(emptyView);
 	}
 	
 	@Override
