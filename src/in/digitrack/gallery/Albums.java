@@ -4,15 +4,26 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 import android.content.Context;
+import android.util.Log;
 
 public class Albums {
 	private ArrayList<Album> mAlbums;
 	private static Albums sAlbums;
 	private Context mAppContext;
+	private AlbumJSONSerializer mSerializer;
+	
+	private static final String FILENAME = "albums.json";
+	private static final String TAG = "Albums";
 	
 	private Albums(Context context) {
 		mAppContext = context;
-		mAlbums = new ArrayList<Album>();
+		mSerializer = new AlbumJSONSerializer(mAppContext, FILENAME);
+		try {
+			mAlbums = mSerializer.loadAlbums();
+		} catch (Exception e) {
+			mAlbums = new ArrayList<Album>();
+			Log.e(TAG, "error loading albums", e);
+		} 
 	}
 	
 	public static Albums get(Context c) {
@@ -36,5 +47,16 @@ public class Albums {
 				return a;
 		}
 		return null;
+	}
+	
+	public boolean saveAlbums() {
+		try {
+			mSerializer.saveAlbums(mAlbums);
+			Log.d(TAG, "albums saved to file");
+			return true;
+		} catch (Exception e) {
+			Log.e(TAG, "error saving file", e);
+			return false;
+		}
 	}
 }

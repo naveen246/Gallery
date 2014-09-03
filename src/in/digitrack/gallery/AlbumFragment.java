@@ -112,4 +112,10 @@ public class AlbumFragment extends Fragment {
 			return super.onOptionsItemSelected(item);
 		}
 	}
+	
+	@Override
+	public void onPause() {
+		super.onPause();
+		Albums.get(getActivity()).saveAlbums();
+	}
 }

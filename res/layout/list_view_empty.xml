@@ -9,12 +9,16 @@
      <TextView android:id="@id/android:empty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/no_album"/>
+            android:text="@string/no_album"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:layout_margin="15dp"/>
      
      <Button 
      		android:id="@+id/new_album_button"  
      		android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/create_album"  
+            android:text="@string/create_album" 
+            android:gravity="center" 
      />
  </LinearLayout>
